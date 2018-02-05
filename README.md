@@ -1,6 +1,6 @@
 # Example-generator
 
-Acceleo tutorial
+[Acceleo tutorial - Getting started](https://wiki.eclipse.org/Acceleo/Getting_Started)
 
 ### Possible troubles
 

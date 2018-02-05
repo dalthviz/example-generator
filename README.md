@@ -1,0 +1,2 @@
+# example-generator
+ACCELEO tutorial

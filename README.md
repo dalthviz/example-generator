@@ -10,3 +10,7 @@ From the FAQ of [Acceleo](https://wiki.eclipse.org/Acceleo/FAQ#Exception_in_thre
 
 (In Windows at C:\\Users\<your-user>\.p2\plugins)
 
+### Run the generator
+
+Go to **umlToBeans.mtl**, right click, *Run as -> Launch Acceleo Application*
+

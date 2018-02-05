@@ -1,7 +1,14 @@
+
+package model
+ 
+   //Start of user code imports	
+   //End of user code
    public class Vehicle {
  
  
      public invalid drive() {
-       // TODO should be implemented
+		  //Start of user code drive	
+          // TODO should be implemented
+          //End of user code
      }
    }

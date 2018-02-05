@@ -3,10 +3,51 @@
  [import org::eclipse::acceleo::module::sample::services::UML2Services /] 
 
  [template public generate(aClass : Class)]
-	[comment @main/]
 [if (aClass.hasStereotype('Bean'))]
  [file (aClass.name.concat('.java'), false)]
-	package [aClass._package.name->sep('.')/]
+
+package [aClass.containingPackages().name->sep('.')/]
+
+   /**
+	*@Generated
+	**/
+
+   public class [aClass.name.toUpperFirst()/] {
+   [for (p: Property | aClass.attribute) separator('\n')]
+	/**
+	*@Generated
+	**/
+     private [p.type.name/] [p.name/];
+   [/for]
+ 
+   [for (p: Property | aClass.attribute) separator('\n')]
+	/**
+	*@Generated
+	**/
+     public [p.type.name/] get[p.name.toUpperFirst()/]() {
+       return this.[p.name/];
+     }
+   [/for]
+ 
+   [for (o: Operation | aClass.ownedOperation) separator('\n')]
+	/**
+	*@Generated NOT
+	**/
+     public [o.type.name/] [o.name/]() {
+       // TODO should be implemented
+     }
+   [/for]
+   }
+ [/file]
+[/if]
+
+[if (not aClass.hasStereotype('Bean'))]
+ [file (aClass.name.concat('.java'), false)]
+
+package [aClass._package.name->sep('.')/]
+ 
+   //[protected ('imports')]	
+   //[/protected]
    public class [aClass.name.toUpperFirst()/] {
    [for (p: Property | aClass.attribute) separator('\n')]
      private [p.type.name/] [p.name/];
@@ -20,10 +61,16 @@
  
    [for (o: Operation | aClass.ownedOperation) separator('\n')]
      public [o.type.name/] [o.name/]() {
-       // TODO should be implemented
+		  //[protected (o.name)]	
+          // TODO should be implemented
+          //[/protected]
      }
    [/for]
    }
- [/file][/if]
-
+ [/file]
+[/if]
  [/template]
+
+[query public containingPackages(aClass : Class): Sequence(Package) =
+	aClass.ancestors(Package)->reject(oclIsKindOf(Model))->reverse()
+/]

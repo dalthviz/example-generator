@@ -1,3 +1,8 @@
+
+package model
+ 
+   //Start of user code imports	
+   //End of user code
    public class Person {
      private String name;
 
@@ -24,10 +29,14 @@
      }
  
      public Integer getAge() {
-       // TODO should be implemented
+		  //Start of user code getAge	
+          // TODO should be implemented
+          //End of user code
      }
 
      public String getFullName() {
-       // TODO should be implemented
+		  //Start of user code getFullName	
+          // TODO should be implemented
+          //End of user code
      }
    }

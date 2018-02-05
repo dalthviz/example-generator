@@ -1,0 +1,15 @@
+[comment encoding = Cp1252 /]
+[**
+ * The documentation of the module.
+ */]
+[module UML2Services('http://www.eclipse.org/uml2/3.0.0/UML')/]
+
+[**
+ * The documentation of the query
+ * @param arg0
+ * @param arg1
+ */]
+[query public hasStereotype(arg0 : Class, arg1 : String) : Boolean
+	= invoke('org.eclipse.acceleo.module.sample.services.UML2Services', 'hasStereotype(org.eclipse.uml2.uml.Class, java.lang.String)', Sequence{arg0, arg1})
+/]
+
